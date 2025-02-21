@@ -36,11 +36,25 @@ const vue_app = Vue.createApp({
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
             title: "IMDB + sean's Top 8 Movies",
             owner: "sean",
-            github: "https://github.com/RandyStith/-Stith--P3"
+            github: "https://github.com/Seanyboy64/NJIT-3_StarterFiles-master"
       }
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
+            getMonthText(dateArray) {
+                  const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                  const [year, month, day] = dateArray;
+                  return `${months[month - 1]} ${day}, ${year}`;
+            },
+            posterClick(index){
+                  const movie = this.movies[index];
+                  movie.posterindex = (movie.posterindex + 1) % movie.posters.length;            
+            },
+            timeText(minutes){
+                  const hours = Math.trunc(minutes / 60)
+                  const mins = minutes % 60
+                  return `${hours}h ${mins}m`
+            }
       }
 })
 
